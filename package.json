@@ -1,0 +1,27 @@
+{
+  "name": "survival-plot",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-eslint": "7.0.0",
+    "eslint": "3.8.1",
+    "eslint-config-react-app": "0.2.1",
+    "react-scripts": "0.6.1"
+  },
+  "dependencies": {
+    "d3": "3",
+    "lodash": "^4.16.4",
+    "noop-fn": "^1.0.0",
+    "react": "15.3.2",
+    "react-dom": "15.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "peerDependencies": {
+    "d3": "^4.2.7"
+  }
+}
