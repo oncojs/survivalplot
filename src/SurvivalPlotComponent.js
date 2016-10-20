@@ -58,7 +58,6 @@ export default class SurvivalPlot extends Component {
   componentDidMount () {
     this.svg = d3.select(this.refs.container).append('svg')
     this.update()
-    window.sss = this
   }
 
   updateState = newState => {
