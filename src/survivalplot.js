@@ -11,6 +11,12 @@ const defaultOptions = {
   markerType: 'circle',
   xAxisLabel: 'Survival Rate',
   yAxisLabel: 'Duration (days)',
+  margins: {
+    top: 20,
+    right: 20,
+    bottom: 46,
+    left: 60,
+  },
 }
 
 export function renderPlot (params) {
@@ -26,22 +32,16 @@ export function renderPlot (params) {
     markerType,
     xAxisLabel,
     yAxisLabel,
-  } = Object.assign({}, defaultOptions, params)
+    margins,
+  } = _.defaultsDeep({}, defaultOptions, params)
 
   const containerBounds = container.getBoundingClientRect()
-
-  var margin = {
-    top: 20,
-    right: 20,
-    bottom: 46,
-    left: 60,
-  }
 
   var outerWidth = containerBounds.width
   var outerHeight = params.height || outerWidth * 0.5
 
-  var axisWidth = outerWidth - margin.left - margin.right
-  var axisHeight = outerHeight - margin.top - margin.bottom
+  var axisWidth = outerWidth - margins.left - margins.right
+  var axisHeight = outerHeight - margins.top - margins.bottom
 
   var longestDuration = _.max(dataSets
       .filter(function (data) {
@@ -76,7 +76,7 @@ export function renderPlot (params) {
 
   var wrapper = d3.select(wrapperFragment).append('svg:g')
       .attr('class', 'wrapper')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+      .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')')
 
   x.domain([xDomain[0], xDomain[1]])
   y.domain([0, 1])
@@ -101,7 +101,7 @@ export function renderPlot (params) {
       .attr('class', 'axis-label')
       .attr('transform', 'rotate(-90)')
       .attr('y', -40)
-      .attr('x', - (margin.top + axisHeight / 2))
+      .attr('x', - (margins.top + axisHeight / 2))
       .text(yAxisLabel)
 
   var brush = d3.svg
@@ -130,7 +130,7 @@ export function renderPlot (params) {
       .attr('x', 0)
       .attr('y', -10)
       .attr('width', axisWidth)
-      .attr('height', axisHeight + margin.top)
+      .attr('height', axisHeight + margins.top)
 
   dataSets.forEach(function (data, i) {
     if (_.includes(disabledDataSets, data)) {
