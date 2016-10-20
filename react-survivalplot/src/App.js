@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import SurvivalPlot from './SurvivalPlotComponent'
+import { SurvivalPlot } from './SurvivalPlotComponent'
 
 import sampleData from './sampleData.json'
 

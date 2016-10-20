@@ -6,3 +6,21 @@ For development, run:
 ```
 npm start
 ```
+
+## Examples
+
+Usage in React projects
+
+```js
+
+import { SurvivalPlot } from '@oncojs/survivalplot'
+
+function () {
+  return (
+    <SurvivalPlot
+      
+    />
+  )
+}
+
+```

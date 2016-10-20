@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import _ from 'lodash'
-import { renderPlot } from './survivalplot'
+import { renderPlot } from '@oncojs/survivalplot'
 import d3 from 'd3'
 
 function isElementFullScreen (element) {
@@ -11,7 +11,7 @@ function isElementFullScreen (element) {
     ], element)
 }
 
-export default class SurvivalPlot extends Component {
+export class SurvivalPlot extends Component {
   state = {
     xDomain: undefined,
     disabledDataSets: undefined,
@@ -24,11 +24,20 @@ export default class SurvivalPlot extends Component {
     onMouseEnterDonor: PropTypes.func,
     onMouseLeaveDonor: PropTypes.func,
     onClickDonor: PropTypes.func,
+    margins: PropTypes.object,
+    xAxisLabel: PropTypes.string,
+    yAxisLabel: PropTypes.string,
   }
 
   static defaultProps = {
     palette: ['#0e6402', '#c20127', '#00005d'],
     censoredStatuses: ['alive'],
+    margins: {
+      top: 20,
+      right: 20,
+      bottom: 46,
+      left: 60,
+    },
     onMouseEnterDonor(event, donor) {
       console.log({
         donor: {
@@ -43,6 +52,8 @@ export default class SurvivalPlot extends Component {
     onClickDonor (e, donor) {
       console.log('onClickDonor')
     },
+    xAxisLabel: 'Survival Rate',
+    yAxisLabel: 'Duration (days)',
   };
 
   stateStack = []
@@ -56,7 +67,7 @@ export default class SurvivalPlot extends Component {
   }
 
   componentDidMount () {
-    this.svg = d3.select(this.refs.container).append('svg')
+    this.svg = this.refs.svg;
     this.update()
   }
 
@@ -68,7 +79,7 @@ export default class SurvivalPlot extends Component {
   update = params => {
     var state = this.state
     var container = this.refs.container
-    var svg = this.svg
+    var svg = this.refs.svg
 
     svg.selectAll('*').remove()
 
@@ -87,10 +98,20 @@ export default class SurvivalPlot extends Component {
       onMouseLeaveDonor: this.props.onMouseLeaveDonor.bind(this),
       onClickDonor: this.props.onClickDonor,
       onDomainChange: (newXDomain) => this.updateState({xDomain: newXDomain}),
+      margins: {
+        top: 20,
+        right: 20,
+        bottom: 46,
+        left: 60,
+      },
     }, params))
   }
 
   render() {
-    return <div ref="container"/>
+    return (
+      <div ref="container">
+        <svg ref="svg"/>
+      </div>
+    )
   }
 }

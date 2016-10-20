@@ -1,5 +1,5 @@
-import _ from 'lodash'
-import d3 from 'd3'
+const _ = require('lodash')
+const d3 = require('d3')
 
 const linearScale = d3.scale ? d3.scale.linear : d3.scaleLinear
 

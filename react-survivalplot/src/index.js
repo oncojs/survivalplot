@@ -7,3 +7,5 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 )
+
+export * from './SurvivalPlotComponent'
