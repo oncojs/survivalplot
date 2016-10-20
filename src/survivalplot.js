@@ -3,21 +3,32 @@ import d3 from 'd3'
 
 const linearScale = d3.scale ? d3.scale.linear : d3.scaleLinear
 
+const defaultOptions = {
+  onMouseEnterDonor: _.noop,
+  onMouseLeaveDonor: _.noop,
+  onClickDonor: _.noop,
+  palette: ['#0e6402', '#c20127', '#00005d'],
+  markerType: 'circle',
+  xAxisLabel: 'Survival Rate',
+  yAxisLabel: 'Duration (days)',
+}
+
 export function renderPlot (params) {
-  var svg = params.svg
-  var container = params.container
-  var dataSets = params.dataSets
-  var disabledDataSets = params.disabledDataSets
-  var onMouseEnterDonor = params.onMouseEnterDonor || _.noop
-  var onMouseLeaveDonor = params.onMouseLeaveDonor || _.noop
-  var onClickDonor = params.onClickDonor || _.noop
-  var palette = params.palette
-  var markerType = params.markerType || 'circle'
+  const {
+    svg,
+    container,
+    dataSets,
+    disabledDataSets,
+    onMouseEnterDonor,
+    onMouseLeaveDonor,
+    onClickDonor,
+    palette,
+    markerType,
+    xAxisLabel,
+    yAxisLabel,
+  } = Object.assign({}, defaultOptions, params)
 
-  var containerBounds = container.getBoundingClientRect()
-
-  var yAxisLabel = 'Survival Rate'
-  var xAxisLabel = 'Duration (days)'
+  const containerBounds = container.getBoundingClientRect()
 
   var margin = {
     top: 20,

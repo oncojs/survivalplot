@@ -81,6 +81,8 @@ export default class SurvivalPlot extends Component {
       palette: this.props.palette,
       markerType: 'line',
       xDomain: state.xDomain,
+      xAxisLabel: 'Duration (days)',
+      yAxisLabel: 'Survival Rate',
       height: isElementFullScreen(container) ? ( window.innerHeight - 100 ) : 0,
       onMouseEnterDonor: this.props.onMouseEnterDonor.bind(this),
       onMouseLeaveDonor: this.props.onMouseLeaveDonor.bind(this),
