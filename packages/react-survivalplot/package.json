@@ -1,6 +1,8 @@
 {
   "name": "@oncojs/react-survivalplot",
   "version": "0.1.0",
+  "dependencies": {
+  },
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-preset-react-app": "^0.2.1",
@@ -13,7 +15,8 @@
   "peerDependencies": {
     "d3": "3",
     "react": "15.3.2",
-    "react-dom": "15.3.2"
+    "react-dom": "15.3.2",
+    "@oncojs/survivalplot": "0.1.0"
   },
   "main": "dist/SurvivalPlot.js",
   "scripts": {
