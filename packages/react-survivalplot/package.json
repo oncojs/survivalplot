@@ -18,7 +18,7 @@
   "main": "dist/SurvivalPlot.js",
   "scripts": {
     "build": "BABEL_ENV=production babel src --out-dir dist",
-    "prepublish": "build",
+    "prepublish": "npm run build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
