@@ -4,10 +4,11 @@
   "private": true,
   "devDependencies": {
     "babel-cli": "^6.16.0",
-    "babel-eslint": "7.0.0",
     "babel-preset-react-app": "^0.2.1",
     "eslint": "3.8.1",
     "eslint-config-react-app": "0.2.1",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
     "react-scripts": "0.6.1"
   },
   "peerDependencies": {
@@ -15,10 +16,10 @@
     "react": "15.3.2",
     "react-dom": "15.3.2"
   },
-  "main": "dist/SurvivalPlotComponent.js",
+  "main": "dist/SurvivalPlot.js",
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "mkdir -p dist && BABEL_ENV=production babel src/SurvivalPlotComponent.js -o dist/SurvivalPlotComponent.js",
+    "build": "BABEL_ENV=production babel src --out-dir dist",
+    "prepublish": "build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
