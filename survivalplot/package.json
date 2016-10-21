@@ -1,7 +1,6 @@
 {
   "name": "@oncojs/survivalplot",
   "version": "0.1.0",
-  "private": true,
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-eslint": "7.0.0",

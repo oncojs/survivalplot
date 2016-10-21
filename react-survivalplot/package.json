@@ -1,7 +1,6 @@
 {
   "name": "@oncojs/react-survivalplot",
   "version": "0.1.0",
-  "private": true,
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-preset-react-app": "^0.2.1",
