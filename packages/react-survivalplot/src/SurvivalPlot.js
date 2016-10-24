@@ -89,7 +89,6 @@ export class SurvivalPlot extends Component {
       dataSets: this.props.dataSets,
       disabledDataSets: state.disabledDataSets,
       palette: this.props.palette,
-      markerType: 'line',
       xDomain: state.xDomain,
       xAxisLabel: 'Duration (days)',
       yAxisLabel: 'Survival Rate',

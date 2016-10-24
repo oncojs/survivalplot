@@ -8,7 +8,6 @@ const defaultOptions = {
   onMouseLeaveDonor: _.noop,
   onClickDonor: _.noop,
   palette: ['#0e6402', '#c20127', '#00005d'],
-  markerType: 'circle',
   xAxisLabel: 'Survival Rate',
   yAxisLabel: 'Duration (days)',
   margins: {
@@ -29,7 +28,6 @@ export function renderPlot (params) {
     onMouseLeaveDonor,
     onClickDonor,
     palette,
-    markerType,
     xAxisLabel,
     yAxisLabel,
     margins,
@@ -169,23 +167,14 @@ export function renderPlot (params) {
       .data(donorsInRange)
       .enter()
 
-    if (markerType === 'line') {
-      markers = markers.append('svg:line')
-        .attr('class', 'point-line')
-        .attr('status', function (d) { return d.status })
-        .attr('x1', function(d) { return x(d.time) })
-        .attr('y1', function(d) { return y(d.survivalEstimate) })
-        .attr('x2', function(d) { return x(d.time) })
-        .attr('y2', function(d) { return y(d.survivalEstimate) + (d.status === 'deceased' ? 10 : -5) })
-        .attr('stroke', setColor)
-    } else {
-      markers = markers.append('svg:circle')
-        .attr('class', 'point')
-        .attr('status', function (d) { return d.status })
-        .attr('cx', function(d) { return x(d.time) })
-        .attr('cy', function(d) { return y(d.survivalEstimate) })
-        .attr('fill', setColor )
-    }
+    markers = markers.append('svg:line')
+      .attr('class', 'point-line')
+      .attr('status', function (d) { return d.status })
+      .attr('x1', function(d) { return x(d.time) })
+      .attr('y1', function(d) { return y(d.survivalEstimate) })
+      .attr('x2', function(d) { return x(d.time) })
+      .attr('y2', function(d) { return y(d.survivalEstimate) + (d.status === 'deceased' ? 10 : -5) })
+      .attr('stroke', setColor)
 
     markers
       .on('mouseover', function (d) {
