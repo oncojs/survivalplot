@@ -33,7 +33,8 @@ export function renderPlot (params) {
     xAxisLabel,
     yAxisLabel,
     margins,
-  } = _.defaultsDeep({}, defaultOptions, params)
+  } = _.defaultsDeep({}, params, defaultOptions)
+
 
   const containerBounds = container.getBoundingClientRect()
 
