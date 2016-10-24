@@ -67,7 +67,7 @@ export class SurvivalPlot extends Component {
   }
 
   componentDidMount () {
-    this.svg = d3.select(this.refs.container).append('svg')
+    this.svg = d3.select(this._container).append('svg')
     this.update()
   }
 
@@ -78,7 +78,7 @@ export class SurvivalPlot extends Component {
 
   update = params => {
     var state = this.state
-    var container = this.refs.container
+    var container = this._container
     var svg = this.svg
 
     svg.selectAll('*').remove()
@@ -109,9 +109,7 @@ export class SurvivalPlot extends Component {
 
   render() {
     return (
-      <div ref="container">
-        <svg ref="svg"/>
-      </div>
+      <div ref={c => this._container = c}/>
     )
   }
 }
