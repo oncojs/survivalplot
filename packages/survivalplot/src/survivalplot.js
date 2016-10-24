@@ -16,6 +16,7 @@ const defaultOptions = {
     bottom: 46,
     left: 60,
   },
+  shouldShowLabels: true
 }
 
 export function renderPlot (params) {
@@ -31,6 +32,7 @@ export function renderPlot (params) {
     xAxisLabel,
     yAxisLabel,
     margins,
+    shouldShowLabels,
   } = _.defaultsDeep({}, params, defaultOptions)
 
 
@@ -186,6 +188,24 @@ export function renderPlot (params) {
       .on('click', function (d) {
         onClickDonor(d3.event, d)
       })
+
+    if (shouldShowLabels) {
+      setGroup.selectAll('circle')
+        .data(donorsInRange.slice(-1))
+        .enter()
+        .append('svg:text')
+          .attr('x', d => x(d.time))
+          .attr('y', d => y(d.survivalEstimate))
+          .attr('dy', '-0.5em')
+          .attr('text-anchor', 'end')
+          .attr('fill', setColor)
+          .append('svg:tspan')
+            .text(d => `S`)
+            .append('svg:tspan')
+              .attr('font-size', '0.7em')
+              .attr('baseline-shift', '-15%')
+              .text(d => `${i + 1}`)
+    }
   })
   
   svg.node().appendChild(wrapperFragment)
