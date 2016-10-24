@@ -1,4 +1,0 @@
-extends: react-app
-rules:
-  semi: [1, 'never']
-  comma-dangle: [1, 'always-multiline']

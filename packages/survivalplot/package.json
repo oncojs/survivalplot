@@ -1,21 +1,10 @@
 {
   "name": "@oncojs/survivalplot",
   "version": "0.1.0",
-  "devDependencies": {
-    "babel-cli": "^6.16.0",
-    "babel-eslint": "7.0.0",
-    "babel-preset-latest": "^6.16.0",
-    "eslint": "3.8.1"
-  },
-  "dependencies": {
-    "lodash": "^4.16.4"
-  },
-  "main": "dist/survivalplot.js",
-  "scripts": {
-    "build": "babel src --out-dir dist",
-    "prepublish": "npm run build"
-  },
+  "brower": "umd/survivalplot.min.js",
+  "main": "survivalplot.js",
   "peerDependencies": {
-    "d3": "3"
+    "d3": "3",
+    "lodash": "4"
   }
 }
