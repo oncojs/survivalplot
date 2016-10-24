@@ -49,3 +49,6 @@ typings
 # Output
 dist
 umd
+
+.DS_Store
+lerna-debug.log
