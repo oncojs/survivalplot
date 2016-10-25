@@ -1,7 +1,7 @@
 {
   "name": "@oncojs/survivalplot",
   "version": "0.1.0",
-  "brower": "umd/survivalplot.min.js",
+  "browser": "umd/survivalplot.min.js",
   "main": "src/survivalplot.js",
   "peerDependencies": {
     "d3": "3",

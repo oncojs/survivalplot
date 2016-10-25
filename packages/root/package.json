@@ -1,4 +1,5 @@
 {
+  "private": true,
   "version": "0.1.0",
   "dependencies": {
     "@oncojs/react-survivalplot": "0.1.0"

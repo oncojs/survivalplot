@@ -9,5 +9,6 @@
     "react": "15",
     "react-dom": "15"
   },
-  "main": "src/SurvivalPlot.js"
+  "main": "src/SurvivalPlot.js",
+  "browser": "umd/react-survivalplot.js"
 }
