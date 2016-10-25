@@ -1,8 +1,8 @@
 {
   "name": "@oncojs/react-survivalplot",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
-    "@oncojs/survivalplot": "0.1.0"
+    "@oncojs/survivalplot": "^0.2.0"
   },
   "peerDependencies": {
     "d3": "3",
