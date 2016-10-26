@@ -16,7 +16,6 @@ const defaultOptions = {
     bottom: 46,
     left: 60,
   },
-  shouldShowLabels: true
 }
 
 export function renderPlot (params) {
@@ -32,7 +31,7 @@ export function renderPlot (params) {
     xAxisLabel,
     yAxisLabel,
     margins,
-    shouldShowLabels,
+    getSetSymbol,
   } = _.defaultsDeep({}, params, defaultOptions)
 
 
@@ -189,7 +188,7 @@ export function renderPlot (params) {
         onClickDonor(d3.event, d)
       })
 
-    if (shouldShowLabels) {
+    if (getSetSymbol) {
       setGroup.selectAll('circle')
         .data(donorsInRange.slice(-1))
         .enter()
@@ -200,11 +199,7 @@ export function renderPlot (params) {
           .attr('text-anchor', 'end')
           .attr('fill', setColor)
           .append('svg:tspan')
-            .text(d => `S`)
-            .append('svg:tspan')
-              .attr('font-size', '0.7em')
-              .attr('baseline-shift', '-15%')
-              .text(d => `${i + 1}`)
+            .html(getSetSymbol(data, dataSets))
     }
   })
   
