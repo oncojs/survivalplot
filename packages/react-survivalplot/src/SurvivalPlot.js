@@ -27,6 +27,7 @@ export class SurvivalPlot extends Component {
     margins: PropTypes.object,
     xAxisLabel: PropTypes.string,
     yAxisLabel: PropTypes.string,
+    getSetSymbol: PropTypes.func,
   }
 
   static defaultProps = {
@@ -93,6 +94,7 @@ export class SurvivalPlot extends Component {
       xAxisLabel: 'Duration (days)',
       yAxisLabel: 'Survival Rate',
       height: isElementFullScreen(container) ? ( window.innerHeight - 100 ) : 0,
+      getSetSymbol: this.props.getSetSymbol,
       onMouseEnterDonor: this.props.onMouseEnterDonor.bind(this),
       onMouseLeaveDonor: this.props.onMouseLeaveDonor.bind(this),
       onClickDonor: this.props.onClickDonor,
