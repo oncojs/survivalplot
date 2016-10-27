@@ -3,6 +3,8 @@ import { SurvivalPlot } from '@oncojs/react-survivalplot'
 
 import sampleData from './sampleData.json'
 
+import './survivalplot.css'
+
 class Root extends Component {
 
   state = {
@@ -47,6 +49,7 @@ class Root extends Component {
     return (
       <div className="App">
         <SurvivalPlot
+          className="survivalplot"
           dataSets={sampleData}
           onMouseEnterDonor={this.handleMouseEnterDonor}
           onMouseLeaveDonor={this.handleMouseLeaveDonor}
