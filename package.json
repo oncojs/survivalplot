@@ -11,7 +11,7 @@
   },
   "scripts": {
     "postinstall": "lerna bootstrap --yes",
-    "start": "make server",
+    "start": "make watch-styles & make server",
     "test": "make test-once"
   },
   "dependencies": {
