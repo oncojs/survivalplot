@@ -18,6 +18,7 @@ export class SurvivalPlot extends Component {
   }
 
   static propTypes = {
+    className: PropTypes.string,
     dataSets: PropTypes.array.isRequired,
     palette: PropTypes.array,
     censoredStatuses: PropTypes.array,
@@ -110,7 +111,10 @@ export class SurvivalPlot extends Component {
 
   render() {
     return (
-      <div ref={c => this._container = c}/>
+      <div
+        ref={c => this._container = c}
+        className={this.props.className || ''}
+      />
     )
   }
 }
