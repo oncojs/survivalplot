@@ -22,6 +22,9 @@
   "devDependencies": {
     "@ncigdc/buildjs-dev-server": "0.3.8",
     "@ncigdc/buildjs-scripts": "0.3.12",
-    "lerna": "2.0.0-beta.29"
+    "css-loader": "0.25.0",
+    "lerna": "2.0.0-beta.29",
+    "node-sass": "3.10.1",
+    "style-loader": "0.13.1"
   }
 }
