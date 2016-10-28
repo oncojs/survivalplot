@@ -1,13 +1,16 @@
 {
   "name": "@oncojs/react-survivalplot",
-  "version": "0.2.2",
-  "dependencies": {
-    "@oncojs/survivalplot": "^0.2.2"
-  },
+  "version": "0.2.7",
   "peerDependencies": {
+    "@oncojs/survivalplot": "0.2.7",
     "react": "15",
     "react-dom": "15"
   },
-  "main": "src/SurvivalPlot.js",
-  "browser": "umd/react-survivalplot.js"
+  "scripts": {
+    "build": "BABEL_ENV=production babel src --out-dir dist"
+  },
+  "main": "dist/SurvivalPlot.js",
+  "devDependencies": {
+    "babel-cli": "^6.18.0"
+  }
 }

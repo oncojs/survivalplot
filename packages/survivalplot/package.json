@@ -1,10 +1,15 @@
 {
   "name": "@oncojs/survivalplot",
-  "version": "0.2.4-alpha.3",
-  "browser": "umd/survivalplot.min.js",
-  "main": "src/survivalplot.js",
+  "version": "0.2.8",
+  "main": "dist/survivalplot.js",
+  "scripts": {
+    "build": "BABEL_ENV=production babel src --out-dir dist"
+  },
   "dependencies": {
     "d3": "3",
     "lodash": "4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0"
   }
 }
