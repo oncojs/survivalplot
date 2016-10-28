@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "browser": "umd/survivalplot.min.js",
   "main": "src/survivalplot.js",
-  "dependencies": {
+  "peerDependencies": {
     "d3": "3",
     "lodash": "4"
   }
