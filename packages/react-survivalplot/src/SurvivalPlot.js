@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import _ from 'lodash'
 import { renderPlot } from '@oncojs/survivalplot'
-var d3 = require('d3');
+import * as d3 from 'd3'
 
 function isElementFullScreen (element) {
   return _.includes([
