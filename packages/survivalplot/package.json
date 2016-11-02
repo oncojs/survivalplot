@@ -1,6 +1,6 @@
 {
   "name": "@oncojs/survivalplot",
-  "version": "0.2.8",
+  "version": "0.3.1",
   "main": "dist/survivalplot.js",
   "scripts": {
     "build": "BABEL_ENV=production babel src --out-dir dist"
