@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import _ from 'lodash'
 import { renderPlot } from '@oncojs/survivalplot'
-import * as d3 from 'd3'
 
 function isElementFullScreen (element) {
   return _.includes([
@@ -69,7 +68,6 @@ export class SurvivalPlot extends Component {
   }
 
   componentDidMount () {
-    this.svg = d3.select(this._container).append('svg')
     this.update()
   }
 
@@ -81,12 +79,8 @@ export class SurvivalPlot extends Component {
   update = params => {
     var state = this.state
     var container = this._container
-    var svg = this.svg
-
-    svg.selectAll('*').remove()
 
     renderPlot(_.defaults({
-      svg,
       container, 
       dataSets: this.props.dataSets,
       disabledDataSets: state.disabledDataSets,

@@ -20,7 +20,6 @@ const defaultOptions = {
 
 export function renderPlot (params) {
   const {
-    svg,
     container,
     dataSets,
     disabledDataSets,
@@ -34,6 +33,13 @@ export function renderPlot (params) {
     getSetSymbol,
   } = _.defaultsDeep({}, params, defaultOptions)
 
+  let svg = d3.select(container).selectAll('svg')
+
+  if(svg.empty()) {
+    svg = d3.select(container).append('svg')
+  } else {
+    svg.selectAll('*').remove()
+  }
 
   const containerBounds = container.getBoundingClientRect()
 
