@@ -38,7 +38,10 @@ export function renderPlot (params) {
   if(svg.empty()) {
     svg = d3.select(container).append('svg')
   } else {
-    svg.selectAll('*').remove()
+    svg
+      .attr('width', 0) // remove previously set width so svg does not stretch container before reading it's width
+      .selectAll('*')
+      .remove();
   }
 
   const containerBounds = container.getBoundingClientRect()
