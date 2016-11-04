@@ -6,8 +6,10 @@
     "build": "BABEL_ENV=production babel src --out-dir dist"
   },
   "dependencies": {
-    "d3": "3",
-    "lodash": "4"
+    "d3": "3"
+  },
+  "peerDependencies": {
+    "lodash": "*"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0"
