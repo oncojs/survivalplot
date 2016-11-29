@@ -13,8 +13,13 @@
     "start": "yarn styles:watch & knit server",
     "lint": "eslint --ext .js modules/node_modules || exit 0"
   },
+  "peerDependencies": {
+    "react": "*",
+    "lodash": "*",
+    "d3": "*"
+  },
   "dependencies": {
-    "d3": "3",
+    "d3": "^3.5.17",
     "lodash": "^4.17.2",
     "react": "^15.4.1"
   },
