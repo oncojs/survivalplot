@@ -14,9 +14,9 @@
     "lint": "eslint --ext .js modules/node_modules || exit 0"
   },
   "peerDependencies": {
-    "react": "*",
+    "d3": "*",
     "lodash": "*",
-    "d3": "*"
+    "react": "*"
   },
   "dependencies": {
     "d3": "^3.5.17",
@@ -26,7 +26,8 @@
   "devDependencies": {
     "@knit/babel-preset-socks-react": "^0.0.37",
     "@knit/eslint-config-socks-react": "^0.0.43",
-    "@knit/knit": "^0.0.43",
+    "@knit/knit": "^0.0.44",
+    "babel-cli": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-object-rest-spread": "^6.19.0",
     "eslint": "^3.11.1",

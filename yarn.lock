@@ -12,9 +12,9 @@
     babel-preset-react "6.16.0"
     react-hot-loader "3.0.0-beta.6"
 
-"@knit/common-tasks@0.0.43":
-  version "0.0.43"
-  resolved "https://registry.yarnpkg.com/@knit/common-tasks/-/common-tasks-0.0.43.tgz#b728867edf64247994e1c7950f074be59e598dee"
+"@knit/common-tasks@0.0.44":
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/@knit/common-tasks/-/common-tasks-0.0.44.tgz#1805e05f1d30afd0d976efc63d861ddf4a749223"
   dependencies:
     "@knit/knit-core" "0.0.43"
     "@knit/needle" "0.0.43"
@@ -55,6 +55,10 @@
     eslint-plugin-fp "2.2.0"
     eslint-plugin-import "2.2.0"
 
+"@knit/html-remove-webpack-plugin@0.0.44":
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/@knit/html-remove-webpack-plugin/-/html-remove-webpack-plugin-0.0.44.tgz#ff02ad3996e1196f057a530c320101c6e73778b6"
+
 "@knit/knit-core@0.0.43":
   version "0.0.43"
   resolved "https://registry.yarnpkg.com/@knit/knit-core/-/knit-core-0.0.43.tgz#d1e6e71210e4d6303b0331b735aa94a6db28b051"
@@ -65,19 +69,18 @@
     fs-extra "1.0.0"
     read-pkg "2.0.0"
 
-"@knit/knit@^0.0.43":
-  version "0.0.43"
-  resolved "https://registry.yarnpkg.com/@knit/knit/-/knit-0.0.43.tgz#26b8be11ee720f31638acafa5bcc9ec13bce7a82"
+"@knit/knit@^0.0.44":
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/@knit/knit/-/knit-0.0.44.tgz#3a203f98bb2212d4051c918463e1eb3f9d50d765"
   dependencies:
-    "@knit/common-tasks" "0.0.43"
+    "@knit/common-tasks" "0.0.44"
     "@knit/knit-core" "0.0.43"
     "@knit/logger" "0.0.37"
     "@knit/needle" "0.0.43"
     "@knit/nice-errors" "0.0.37"
-    "@knit/webpack-config-socks-app" "0.0.43"
+    "@knit/webpack-config-socks-app" "0.0.44"
     "@knit/webpack-config-socks-lib" "0.0.43"
     "@reactivex/rxjs" "5.0.0-rc.4"
-    babel-cli "6.18.0"
     chalk "1.1.3"
     connect-gzip-static "1.0.0"
     del "2.2.2"
@@ -119,10 +122,11 @@
     chalk "1.1.3"
     serialize-error "2.0.0"
 
-"@knit/webpack-config-socks-app@0.0.43":
-  version "0.0.43"
-  resolved "https://registry.yarnpkg.com/@knit/webpack-config-socks-app/-/webpack-config-socks-app-0.0.43.tgz#36f7dc0116ce3b86bd9413e9febf8158e7025209"
+"@knit/webpack-config-socks-app@0.0.44":
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/@knit/webpack-config-socks-app/-/webpack-config-socks-app-0.0.44.tgz#0c0b06d0c1d64dc28a5180fa096ca5af0cbe2421"
   dependencies:
+    "@knit/html-remove-webpack-plugin" "0.0.44"
     "@knit/needle" "0.0.43"
     "@knit/webpack-config-socks" "0.0.43"
     babel-loader "6.2.7"
@@ -390,7 +394,7 @@ aws4@^1.2.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.5.0.tgz#0a29ffb79c31c9e712eeb087e8e7a64b4a56d755"
 
-babel-cli@6.18.0:
+babel-cli@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.18.0.tgz#92117f341add9dead90f6fa7d0a97c0cc08ec186"
   dependencies:
@@ -1632,7 +1636,7 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-d3@3:
+d3@^3.5.17:
   version "3.5.17"
   resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
 
