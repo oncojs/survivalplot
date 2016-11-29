@@ -1,3 +1,3 @@
 module.exports = {
-  extends: "@ncigdc/buildjs-react",
+  extends: "@knit/socks-react",
 };
