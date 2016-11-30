@@ -1,9 +1,10 @@
 {
   "private": true,
   "version": "0.3.3",
+  "license": "Apache-2.0",
   "repository": "oncojs/survivalplot",
   "author": {
-    "name": "OICR",
+    "name": "OncoJS",
     "url": "https://github.com/oncojs/"
   },
   "scripts": {
@@ -20,13 +21,12 @@
   },
   "dependencies": {
     "d3": "^3.5.17",
-    "lodash": "^4.17.2",
-    "react": "^15.4.1"
+    "lodash": "^4.17.2"
   },
   "devDependencies": {
-    "@knit/babel-preset-socks-react": "^0.0.37",
+    "@knit/babel-preset-socks-react": "^0.0.46",
     "@knit/eslint-config-socks-react": "^0.0.43",
-    "@knit/knit": "^0.0.44",
+    "@knit/knit": "^0.0.46",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-object-rest-spread": "^6.19.0",

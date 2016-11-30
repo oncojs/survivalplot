@@ -1,9 +1,3 @@
 {
-  "presets": ["@knit/socks-react"],
-  "plugins": [
-    "transform-class-properties",
-    ["transform-object-rest-spread", {
-        "useBuiltIns": true
-    }]
-  ]
+  "presets": ["@knit/socks-react"]
 }
