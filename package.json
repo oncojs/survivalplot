@@ -21,12 +21,13 @@
   },
   "dependencies": {
     "d3": "^3.5.17",
-    "lodash": "^4.17.2"
+    "lodash": "^4.17.2",
+    "react": "^15.4.1"
   },
   "devDependencies": {
     "@knit/babel-preset-socks-react": "^0.0.46",
     "@knit/eslint-config-socks-react": "^0.0.43",
-    "@knit/knit": "^0.0.46",
+    "@knit/knit": "^0.0.47",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-object-rest-spread": "^6.19.0",

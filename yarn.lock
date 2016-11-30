@@ -14,9 +14,9 @@
     babel-preset-react "6.16.0"
     react-hot-loader "3.0.0-beta.6"
 
-"@knit/common-tasks@0.0.46":
-  version "0.0.46"
-  resolved "https://registry.yarnpkg.com/@knit/common-tasks/-/common-tasks-0.0.46.tgz#27629334993e6cc9de4959f305e2fdb74835f8e7"
+"@knit/common-tasks@0.0.47":
+  version "0.0.47"
+  resolved "https://registry.yarnpkg.com/@knit/common-tasks/-/common-tasks-0.0.47.tgz#139d51782c587c7d55ddef123cb5eac59b312878"
   dependencies:
     "@knit/knit-core" "0.0.43"
     "@knit/needle" "0.0.43"
@@ -71,11 +71,11 @@
     fs-extra "1.0.0"
     read-pkg "2.0.0"
 
-"@knit/knit@^0.0.46":
-  version "0.0.46"
-  resolved "https://registry.yarnpkg.com/@knit/knit/-/knit-0.0.46.tgz#c00ac4df343e110bffdedc9fca47625032504995"
+"@knit/knit@^0.0.47":
+  version "0.0.47"
+  resolved "https://registry.yarnpkg.com/@knit/knit/-/knit-0.0.47.tgz#04277755cfbcaf37e86972faa143fe0feab87192"
   dependencies:
-    "@knit/common-tasks" "0.0.46"
+    "@knit/common-tasks" "0.0.47"
     "@knit/knit-core" "0.0.43"
     "@knit/logger" "0.0.37"
     "@knit/needle" "0.0.43"
@@ -2243,7 +2243,7 @@ fastparse@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
 
-fbjs@^0.8.1:
+fbjs@^0.8.1, fbjs@^0.8.4:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.6.tgz#7eb67d6986b2d5007a9b6e92e0e7cb6f75cad290"
   dependencies:
@@ -4415,6 +4415,14 @@ react-proxy@^3.0.0-alpha.0:
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
   dependencies:
     lodash "^4.6.1"
+
+react@^15.4.1:
+  version "15.4.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.4.1.tgz#498e918602677a3983cd0fd206dfe700389a0dd6"
+  dependencies:
+    fbjs "^0.8.4"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
