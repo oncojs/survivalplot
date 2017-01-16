@@ -15,11 +15,11 @@
     "lint": "eslint --ext .js modules/node_modules || exit 0"
   },
   "peerDependencies": {
-    "d3": "*",
-    "react": "*"
+    "react": "*",
+    "d3": ">=3"
   },
   "dependencies": {
-    "d3": "*",
+    "d3": ">=3",
     "lodash.defaults": "^4.2.0",
     "lodash.defaultsdeep": "^4.6.0",
     "lodash.inrange": "^3.3.6",
