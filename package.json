@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.3.6",
+  "version": "0.4.1",
   "license": "Apache-2.0",
   "repository": "oncojs/survivalplot",
   "author": {
@@ -15,8 +15,8 @@
     "lint": "eslint --ext .js modules/node_modules || exit 0"
   },
   "peerDependencies": {
-    "react": "*",
-    "d3": ">=3"
+    "d3": ">=3",
+    "react": "*"
   },
   "dependencies": {
     "d3": ">=3",
