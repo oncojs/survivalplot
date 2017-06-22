@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { SurvivalPlot } from '@oncojs/react-survivalplot'
-import sampleData from './sampleData.json'
+import sampleData from './sampleData'
 
-import logo from './logo.svg';
 import './App.css';
 import './survivalplot.css';
+
+const dataSets = sampleData.largeSingle;
 
 class App extends Component {
 
@@ -51,7 +52,7 @@ class App extends Component {
       <div className="App">
         <SurvivalPlot
           className="survivalplot"
-          dataSets={sampleData}
+          dataSets={dataSets}
           onMouseEnterDonor={this.handleMouseEnterDonor}
           onMouseLeaveDonor={this.handleMouseLeaveDonor}
         />
