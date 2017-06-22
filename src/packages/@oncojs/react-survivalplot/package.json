@@ -1,0 +1,10 @@
+{
+  "name": "@oncojs/react-survivalplot",
+  "version": "0.5.0",
+  "browser": true,
+  "dependencies": {
+    "@oncojs/survivalplot": "0.5.0",
+    "lodash.defaults": "^4.2.0",
+    "lodash.isequal": "^4.5.0"
+  }
+}
