@@ -81,9 +81,7 @@ export function renderPlot (params) {
     .attr('width', outerWidth)
     .attr('height', outerHeight)
 
-  var wrapperFragment = document.createDocumentFragment()
-
-  var wrapper = d3.select(wrapperFragment).append('svg:g')
+  var wrapper = d3.select(svg.node()).append('svg:g')
       .attr('class', 'wrapper')
       .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')')
 
@@ -179,7 +177,6 @@ export function renderPlot (params) {
 
     var setColor = palette[i % palette.length]
 
-
     var donorsInRange = data.donors.filter(function (donor, i, arr) {
       return inRange(donor.time, xDomain[0], xDomain[1] + 1) ||
         ( arr[i - 1] && donor.time >= xDomain[1] && arr[i - 1].time <= xDomain[1] ) ||
@@ -233,8 +230,6 @@ export function renderPlot (params) {
             .html(getSetSymbol(data, dataSets))
     }
   })
-  
-  svg.node().appendChild(wrapperFragment)
 
   return svg
 }
