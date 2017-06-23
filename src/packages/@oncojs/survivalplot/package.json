@@ -8,11 +8,5 @@
     "lodash.inrange": "^3.3.6",
     "lodash.uniqueid": "^4.0.1"
   },
-  "main": "index.dist.js",
-  "scripts": {
-    "build": "babel index.js --out-file index.dist.js"
-  },
-  "devDependencies": {
-    "babel-preset-env": "^1.5.2"
-  }
+  "main": "index.dist.js"
 }
