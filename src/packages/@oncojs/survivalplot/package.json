@@ -13,6 +13,6 @@
     "build": "babel index.js --out-file index.dist.js"
   },
   "devDependencies": {
-    "babel-preset-es2015-ie": "^6.7.0"
+    "babel-preset-env": "^1.5.2"
   }
 }
