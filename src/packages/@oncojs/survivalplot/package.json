@@ -1,6 +1,6 @@
 {
   "name": "@oncojs/survivalplot",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "browser": true,
   "dependencies": {
     "d3": "3",
