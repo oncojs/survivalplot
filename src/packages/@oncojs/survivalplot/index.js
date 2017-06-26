@@ -2,6 +2,7 @@ import d3 from 'd3'
 import defaultsDeep from 'lodash.defaultsdeep'
 import uniqueId from 'lodash.uniqueid'
 import inRange from 'lodash.inrange'
+import uniqBy from 'lodash.uniqby'
 
 function noop() {}
 
@@ -183,9 +184,12 @@ export function renderPlot (params) {
         ( arr[i + 1] && donor.time <= xDomain[0] && arr[i + 1].time >= xDomain[0] )
     })
 
+    var sampledDataPoints = uniqBy(donorsInRange, x => x.time)
+    console.log(sampledDataPoints)
+
     // Draw the data as an svg path
     setGroup.append('svg:path')
-      .datum(donorsInRange
+      .datum(sampledDataPoints
         .map(function (d) { return {x: d.time, y: d.survivalEstimate} }))
       .attr('class', 'line')
       .attr('d', line)
@@ -193,7 +197,7 @@ export function renderPlot (params) {
 
     // Draw the data points as circles
     var markers = setGroup.selectAll('circle')
-      .data(donorsInRange)
+      .data(sampledDataPoints)
       .enter()
 
     markers = markers.append('svg:line')
@@ -218,7 +222,7 @@ export function renderPlot (params) {
 
     if (getSetSymbol) {
       setGroup.selectAll('circle')
-        .data(donorsInRange.slice(-1))
+        .data(sampledDataPoints.slice(-1))
         .enter()
         .append('svg:text')
           .attr('x', d => Math.min(axisWidth, x(d.time)))
