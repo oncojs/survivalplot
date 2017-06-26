@@ -184,8 +184,11 @@ export function renderPlot (params) {
         ( arr[i + 1] && donor.time <= xDomain[0] && arr[i + 1].time >= xDomain[0] )
     })
 
-    var sampledDataPoints = uniqBy(donorsInRange, x => x.time)
-    console.log(sampledDataPoints)
+    var domainDistance = xDomain[1] - xDomain[0]
+    var maxDonorDensity = 0.55
+    var granularityFactor = outerWidth * maxDonorDensity / domainDistance
+
+    var sampledDataPoints = uniqBy(donorsInRange, x => Math.round(x.time * granularityFactor))
 
     // Draw the data as an svg path
     setGroup.append('svg:path')
