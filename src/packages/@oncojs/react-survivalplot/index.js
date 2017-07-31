@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import isEqual from 'lodash.isequal'
 import defaults from 'lodash.defaults'
-import { renderPlot } from '@oncojs/survivalplot'
+import { renderPlot } from '@oncojs/survivalplot/index.js'
 
 function isElementFullScreen (element) {
   return [
@@ -40,18 +40,18 @@ export class SurvivalPlot extends Component {
       bottom: 46,
       left: 60,
     },
-    onMouseEnterDonor(event, donor) {
+    onMouseEnterDonors(event, donors) {
       console.log({
-        donor: {
+        donors: donors.map(donor => ({
           ...donor,
           isCensored: this.props.censoredStatuses.indexOf(donor.status) >= 0,
-        },
+        })),
       })
     },
-    onMouseLeaveDonor () {
+    onMouseLeaveDonors () {
       console.log('onMouseLeaveDonor')
     },
-    onClickDonor (e, donor) {
+    onClickDonors (e, donors) {
       console.log('onClickDonor')
     },
     xAxisLabel: 'Survival Rate',
@@ -91,9 +91,12 @@ export class SurvivalPlot extends Component {
       yAxisLabel: 'Survival Rate',
       height: isElementFullScreen(container) ? ( window.innerHeight - 100 ) : 0,
       getSetSymbol: this.props.getSetSymbol,
-      onMouseEnterDonor: this.props.onMouseEnterDonor.bind(this),
-      onMouseLeaveDonor: this.props.onMouseLeaveDonor.bind(this),
+      onMouseEnterDonor: this.props.onMouseEnterDonor && this.props.onMouseEnterDonor.bind(this),
+      onMouseLeaveDonor: this.props.onMouseLeaveDonor && this.props.onMouseLeaveDonor.bind(this),
       onClickDonor: this.props.onClickDonor,
+      onMouseEnterDonors: this.props.onMouseEnterDonors && this.props.onMouseEnterDonors.bind(this),
+      onMouseLeaveDonors: this.props.onMouseLeaveDonors && this.props.onMouseLeaveDonors.bind(this),
+      onClickDonors: this.props.onClickDonors,
       onDomainChange: (newXDomain) => this.updateState({xDomain: newXDomain}),
       margins: {
         top: 20,

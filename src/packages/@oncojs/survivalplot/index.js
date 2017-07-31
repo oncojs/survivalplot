@@ -3,6 +3,11 @@ import defaultsDeep from 'lodash.defaultsdeep'
 import uniqueId from 'lodash.uniqueid'
 import inRange from 'lodash.inrange'
 import uniqBy from 'lodash.uniqby'
+import groupBy from 'lodash.groupby'
+import debug  from 'debug'
+
+const error = debug('survivalplot:error')
+const log = debug('survivalplot:log')
 
 function noop() {}
 
@@ -31,12 +36,19 @@ export function renderPlot (params) {
     onMouseEnterDonor,
     onMouseLeaveDonor,
     onClickDonor,
+    onMouseEnterDonors,
+    onMouseLeaveDonors,
+    onClickDonors,
     palette,
     xAxisLabel,
     yAxisLabel,
     margins,
     getSetSymbol,
-  } = defaultsDeep({}, params, defaultOptions)
+  } = defaultsDeep({}, params, defaultOptions, {
+    onMouseEnterDonors: (event, donors) => onMouseEnterDonor(event, donors[0]),
+    onMouseLeaveDonors: (event, donors) => onMouseLeaveDonor(event, donors[0]),
+    onClickDonors: (event, donors) => onClickDonor(event, donors[0]),
+  })
 
   let svg = d3.select(container).selectAll('svg')
 
@@ -187,8 +199,12 @@ export function renderPlot (params) {
     var domainDistance = xDomain[1] - xDomain[0]
     var maxDonorDensity = 0.55
     var granularityFactor = outerWidth * maxDonorDensity / domainDistance
+    var groupingFunction = x => Math.round(x.time * granularityFactor)
+    var groupedDonors = groupBy(donorsInRange, groupingFunction)
+    var sampledDataPoints = Object.values(groupedDonors).map(x => x[0])
 
-    var sampledDataPoints = uniqBy(donorsInRange, x => Math.round(x.time * granularityFactor))
+    log('groupedDonors', groupedDonors)
+    log('sampledDataPoints', sampledDataPoints)
 
     // Draw the data as an svg path
     setGroup.append('svg:path')
@@ -214,13 +230,19 @@ export function renderPlot (params) {
 
     markers
       .on('mouseover', function (d) {
-        onMouseEnterDonor(d3.event, d)
+        var donorGroup = groupedDonors[groupingFunction(d)]
+        log('mouseover', donorGroup)
+        onMouseEnterDonors(d3.event, donorGroup)
       })
       .on('mouseout', function (d) {
-        onMouseLeaveDonor(d3.event, d)
+        var donorGroup = groupedDonors[groupingFunction(d)]
+        log('mouseout', donorGroup)
+        onMouseLeaveDonors(d3.event, donorGroup)
       })
       .on('click', function (d) {
-        onClickDonor(d3.event, d)
+        var donorGroup = groupedDonors[groupingFunction(d)]
+        log('click', donorGroup)
+        onClickDonors(d3.event, donorGroup)
       })
 
     if (getSetSymbol) {

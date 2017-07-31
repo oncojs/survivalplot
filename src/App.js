@@ -18,18 +18,17 @@ class App extends Component {
     },
   }
 
-  handleMouseEnterDonor = (event, donor) => {
-    console.log(event)
+  handleMouseEnterDonors = (event, donors) => {
     this.setState({tooltip: {
       ...this.state.tooltip,
       isVisible: true,
-      donor: donor,
+      donor: donors[0],
       x: event.x,
       y: event.y,
     }})
   }
 
-  handleMouseLeaveDonor = () => {
+  handleMouseLeaveDonors = () => {
     this.setState({
       tooltip: {
         ...this.state.tooltip,
@@ -53,8 +52,8 @@ class App extends Component {
         <SurvivalPlot
           className="survivalplot"
           dataSets={dataSets}
-          onMouseEnterDonor={this.handleMouseEnterDonor}
-          onMouseLeaveDonor={this.handleMouseLeaveDonor}
+          onMouseEnterDonors={this.handleMouseEnterDonors}
+          onMouseLeaveDonors={this.handleMouseLeaveDonors}
         />
         <div style={tooltipStyle}>
           <strong>{ donor.id }</strong>
