@@ -221,14 +221,14 @@ export function renderPlot (params) {
 
     // Draw the data as an svg path
     setGroup.append('svg:path')
-      .datum(sampledDataPoints)
+      .data([sampledDataPoints])
       .attr('class', 'line')
       .attr('d', line)
       .attr('stroke', setColor)
     
     // Draw the confidence interval
     shouldShowConfidenceIntervals && setGroup.append('svg:path')
-      .datum(sampledDataPoints)
+      .data([sampledDataPoints])
       .attr('class', 'area confidence')
       .attr('d', confidenceArea)
       .attr('fill', setColor)
