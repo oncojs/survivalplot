@@ -32,7 +32,7 @@ export class SurvivalPlot extends Component {
   }
 
   static defaultProps = {
-    palette: ['#0e6402', '#c20127', '#00005d'],
+    palette: ['#1880b2', '#c20127', '#00005d'],
     censoredStatuses: ['alive'],
     margins: {
       top: 20,
