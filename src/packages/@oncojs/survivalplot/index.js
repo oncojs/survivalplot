@@ -26,7 +26,11 @@ const defaultOptions = {
     bottom: 46,
     left: 60,
   },
+  shouldShowConfidenceIntervals: true,
+  confidenceAreaOpacity: 0.2,
 }
+
+const interpolation = d3.svg ? 'step-before' : d3.curveStepBefore;
 
 export function renderPlot (params) {
   const {
@@ -44,6 +48,8 @@ export function renderPlot (params) {
     yAxisLabel,
     margins,
     getSetSymbol,
+    shouldShowConfidenceIntervals,
+    confidenceAreaOpacity,
   } = defaultsDeep({}, params, defaultOptions, {
     onMouseEnterDonors: (event, donors) => onMouseEnterDonor(event, donors[0]),
     onMouseLeaveDonors: (event, donors) => onMouseLeaveDonor(event, donors[0]),
@@ -176,12 +182,22 @@ export function renderPlot (params) {
       return
     }
 
-    var line = d3.svg
-      ? d3.svg.area().interpolate('step-before')
-      : d3.area().curve(d3.curveStepBefore)
-
-    line.x(function(p) { return x(p.x) })
-      .y(function(p) { return y(p.y) })
+    var line = (
+      d3.svg
+      ? d3.svg.area().interpolate(interpolation)
+      : d3.area().curve(interpolation)
+    )
+      .x(d => x(d.time))
+      .y(d => y(d.survivalEstimate))
+    
+    var confidenceArea = (
+      d3.svg
+        ? d3.svg.area().interpolate(interpolation)
+        : d3.area().curve(interpolation)
+    )
+      .x(d => x(d.time))
+      .y0(d => y(d.confidenceInterval[0]))
+      .y1(d => y(d.confidenceInterval[1]))
 
     var setGroup = wrapper.append('svg:g')
       .attr('class', 'serie')
@@ -203,16 +219,21 @@ export function renderPlot (params) {
     var groupedDonors = groupBy(donorsInRange, groupingFunction)
     var sampledDataPoints = Object.values(groupedDonors).map(x => x[0])
 
-    log('groupedDonors', groupedDonors)
-    log('sampledDataPoints', sampledDataPoints)
-
     // Draw the data as an svg path
     setGroup.append('svg:path')
-      .datum(sampledDataPoints
-        .map(function (d) { return {x: d.time, y: d.survivalEstimate} }))
+      .datum(sampledDataPoints)
       .attr('class', 'line')
       .attr('d', line)
       .attr('stroke', setColor)
+    
+    // Draw the confidence interval
+    shouldShowConfidenceIntervals && setGroup.append('svg:path')
+      .datum(sampledDataPoints)
+      .attr('class', 'area confidence')
+      .attr('d', confidenceArea)
+      .attr('fill', setColor)
+      .attr('fill-opacity', confidenceAreaOpacity)
+      .attr('pointer-events', 'none')
 
     // Draw the data points as circles
     var markers = setGroup.selectAll('circle')

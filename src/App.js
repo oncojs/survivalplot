@@ -5,7 +5,7 @@ import sampleData from './sampleData'
 import './App.css';
 import './survivalplot.css';
 
-const dataSets = sampleData.largeSingle;
+const dataSets = sampleData.doubleWithConfidenceIntervals;
 
 class App extends Component {
 
