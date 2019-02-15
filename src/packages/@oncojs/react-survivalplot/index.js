@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
 import isEqual from 'lodash.isequal'
 import defaults from 'lodash.defaults'
 import { renderPlot } from '@oncojs/survivalplot/index.js'
