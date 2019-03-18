@@ -28,6 +28,7 @@ const defaultOptions = {
   },
   shouldShowConfidenceIntervals: true,
   confidenceAreaOpacity: 0.2,
+  durationInYears: false
 }
 
 const interpolation = d3.svg ? 'step-before' : d3.curveStepBefore;
@@ -50,6 +51,7 @@ export function renderPlot (params) {
     getSetSymbol,
     shouldShowConfidenceIntervals,
     confidenceAreaOpacity,
+    durationInYears
   } = defaultsDeep({}, params, defaultOptions, {
     onMouseEnterDonors: (event, donors) => onMouseEnterDonor(event, donors[0]),
     onMouseLeaveDonors: (event, donors) => onMouseLeaveDonor(event, donors[0]),
@@ -78,7 +80,7 @@ export function renderPlot (params) {
   var longestDuration = Math.max(...dataSets
       .filter(data => disabledDataSets.indexOf(data) < 0 && data.donors.length)
       .map(data => data.donors.slice(-1)[0].time))
-  
+
   var xDomain = params.xDomain || [0, longestDuration]
   var onDomainChange = params.onDomainChange
 
@@ -91,6 +93,8 @@ export function renderPlot (params) {
   var xAxis = d3.svg
       ? d3.svg.axis().scale(x).orient('bottom')
       : d3.axisBottom().scale(x)
+
+  if (durationInYears) { xAxis.tickFormat(x => Math.ceil(x/365.25)); }
 
   var yAxis = d3.svg
     ? d3.svg.axis().scale(y).ticks(5).tickSize(axisWidth).orient('right')
@@ -225,7 +229,7 @@ export function renderPlot (params) {
       .attr('class', 'line')
       .attr('d', line)
       .attr('stroke', setColor)
-    
+
     // Draw the confidence interval
     shouldShowConfidenceIntervals && setGroup.append('svg:path')
       .data([sampledDataPoints])
