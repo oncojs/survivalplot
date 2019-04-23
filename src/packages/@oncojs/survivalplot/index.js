@@ -2,11 +2,9 @@ import d3 from 'd3'
 import defaultsDeep from 'lodash.defaultsdeep'
 import uniqueId from 'lodash.uniqueid'
 import inRange from 'lodash.inrange'
-import uniqBy from 'lodash.uniqby'
 import groupBy from 'lodash.groupby'
 import debug  from 'debug'
 
-const error = debug('survivalplot:error')
 const log = debug('survivalplot:log')
 
 function noop() {}
@@ -78,7 +76,7 @@ export function renderPlot (params) {
   var longestDuration = Math.max(...dataSets
       .filter(data => disabledDataSets.indexOf(data) < 0 && data.donors.length)
       .map(data => data.donors.slice(-1)[0].time))
-  
+
   var xDomain = params.xDomain || [0, longestDuration]
   var onDomainChange = params.onDomainChange
 
@@ -127,7 +125,8 @@ export function renderPlot (params) {
     .filter(d => d)
     .classed('minor', true)
   gy.selectAll('text')
-      .attr('x', -20)
+      .attr('x', -30)
+      .attr('text-anchor', 'end')
   gy.append('svg:text')
       .attr('class', 'axis-label')
       .attr('text-anchor', 'middle')
@@ -189,7 +188,7 @@ export function renderPlot (params) {
     )
       .x(d => x(d.time))
       .y(d => y(d.survivalEstimate))
-    
+
     var confidenceArea = (
       d3.svg
         ? d3.svg.area().interpolate(interpolation)
@@ -225,7 +224,7 @@ export function renderPlot (params) {
       .attr('class', 'line')
       .attr('d', line)
       .attr('stroke', setColor)
-    
+
     // Draw the confidence interval
     shouldShowConfidenceIntervals && setGroup.append('svg:path')
       .data([sampledDataPoints])
