@@ -125,8 +125,8 @@ export function renderPlot (params) {
     .filter(d => d)
     .classed('minor', true)
   gy.selectAll('text')
-      .attr('x', -30)
-      .attr('text-anchor', 'end')
+    .attr('x', -5)
+    .style('text-anchor', 'end');
   gy.append('svg:text')
       .attr('class', 'axis-label')
       .attr('text-anchor', 'middle')
