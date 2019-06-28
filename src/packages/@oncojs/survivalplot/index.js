@@ -48,6 +48,7 @@ export function renderPlot (params) {
     getSetSymbol,
     shouldShowConfidenceIntervals,
     confidenceAreaOpacity,
+    minimumDonors = 1,
   } = defaultsDeep({}, params, defaultOptions, {
     onMouseEnterDonors: (event, donors) => onMouseEnterDonor(event, donors[0]),
     onMouseLeaveDonors: (event, donors) => onMouseLeaveDonor(event, donors[0]),
@@ -177,7 +178,7 @@ export function renderPlot (params) {
       .attr('height', axisHeight + margins.top)
 
   dataSets.forEach(function (data, i) {
-    if (disabledDataSets.indexOf(data) >= 0) {
+    if (disabledDataSets.indexOf(data) >= 0 || data.donors.length < minimumDonors) {
       return
     }
 
