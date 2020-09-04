@@ -4,7 +4,7 @@
   "browser": true,
   "dependencies": {
     "d3": "3",
-    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.defaultsdeep": "^4.6.1",
     "lodash.groupby": "^4.6.0",
     "lodash.inrange": "^3.3.6",
     "lodash.uniqby": "^4.7.0",
