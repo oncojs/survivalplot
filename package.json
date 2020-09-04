@@ -6,7 +6,7 @@
     "d3": "3",
     "debug": "^2.6.8",
     "lodash.defaults": "^4.2.0",
-    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.defaultsdeep": "^4.6.1",
     "lodash.groupby": "^4.6.0",
     "lodash.inrange": "^3.3.6",
     "lodash.isequal": "^4.5.0",
